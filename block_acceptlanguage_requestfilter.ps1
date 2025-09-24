@@ -3,7 +3,7 @@ Import-Module WebAdministration
 
 $ruleName = "ACCEPTLANGUAGE Block"
 
-# Add a request filtering rule to deny specific User-Agent strings server-wide
+# Add a request filtering rule to deny specific Accept-Language strings server-wide
 Add-WebConfigurationProperty -PSPath "IIS:\" `
     -Filter "system.webServer/security/requestFiltering/filteringRules" `
     -Name "." `
@@ -11,7 +11,7 @@ Add-WebConfigurationProperty -PSPath "IIS:\" `
         name = $ruleName
     }
 
-# Configure the rule to apply to the User-Agent header
+# Configure the rule to apply to the Accept-Language header
 Add-WebConfigurationProperty -PSPath "IIS:\" `
     -Filter "system.webServer/security/requestFiltering/filteringRules/filteringRule[@name='$ruleName']/scanHeaders" `
     -Name "." `
@@ -87,3 +87,4 @@ Add-WebConfigurationProperty -PSPath "IIS:\" ` -Filter "system.webServer/securit
     -Value @{string="en-GH"} `
 
     -Force
+
