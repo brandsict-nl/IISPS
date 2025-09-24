@@ -1,7 +1,7 @@
 # https://github.com/brandsict-nl/IISPS
 Import-Module WebAdministration
 
-$ruleName = "block list with acceptlanguage"
+$ruleName = "ACCEPTLANGUAGE Block"
 
 # Add a request filtering rule to deny specific User-Agent strings server-wide
 Add-WebConfigurationProperty -PSPath "IIS:\" `
@@ -85,4 +85,5 @@ Add-WebConfigurationProperty -PSPath "IIS:\" ` -Filter "system.webServer/securit
 Add-WebConfigurationProperty -PSPath "IIS:\" ` -Filter "system.webServer/security/requestFiltering/filteringRules/filteringRule[@name='$ruleName']/denyStrings" `
     -Name "." `
     -Value @{string="en-GH"} `
+
     -Force
