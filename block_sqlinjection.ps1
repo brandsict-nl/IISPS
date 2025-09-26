@@ -1,3 +1,4 @@
+# https://github.com/brandsict-nl/IISPS
 Import-Module WebAdministration
 
 function createFilterRule {
@@ -48,4 +49,5 @@ createFilterRule -ruleName "SQL-BLOCK-truncate-table" -denyString "truncate+tabl
 createFilterRule -ruleName "SQL-BLOCK-nvarchar" -denyString "nvarchar"
 
 createFilterRule -ruleName "SQL-BLOCK-one-equals-one" -denyString "1=1"
+
 createFilterRule -ruleName "SQL-BLOCK-encoded-one-equals-one" -denyString "1%3d1"
